@@ -2,66 +2,164 @@
 <html lang="es">
 
 <head>
+
+    <!-- =========================
+         CONFIGURACIÓN
+    ========================== -->
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
-        content="Pádel Nation Córdoba - Un espacio para jugar, competir y disfrutar del pádel.">
+          content="Padel Nation Córdoba — No es solo pádel. Es experiencia.">
 
-    <title>Pádel Nation Córdoba</title>
+    <meta name="theme-color"
+          content="#080b0d">
 
-    <!-- Font Awesome -->
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    >
+    <title>Padel Nation Córdoba</title>
 
-    <!-- Estilos -->
-    <link rel="stylesheet" href="style.css">
+
+    <!-- =========================
+         TIPOGRAFÍAS
+    ========================== -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+
+    <!-- =========================
+         CSS
+    ========================== -->
+
+    <link rel="stylesheet"
+          href="style.css">
+
 </head>
 
 
 <body>
 
-    <!-- =====================================================
+
+    <!-- ==================================================
+         PRELOADER
+    =================================================== -->
+
+    <div class="preloader">
+
+        <div class="preloader-logo">
+            <img src="827A282C-CA48-429D-8D7F-77B0D315A677"
+                 alt="Padel Nation Córdoba">
+        </div>
+
+        <div class="preloader-line">
+            <span></span>
+        </div>
+
+        <p>PREPARANDO LA EXPERIENCIA</p>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         CURSOR / EFECTOS
+    =================================================== -->
+
+    <div class="cursor"></div>
+
+    <div class="cursor-follower"></div>
+
+    <div class="cursor-glow"></div>
+
+    <div class="noise"></div>
+
+
+
+    <!-- ==================================================
          HEADER
-    ====================================================== -->
+    =================================================== -->
 
-    <header class="header">
+    <header class="site-header">
 
-        <div class="header-container">
+        <div class="header-inner">
 
-            <a href="#inicio" class="logo">
-                <img
-                    src="827A282C-CA48-429D-8D7F-77B0D315A677.png"
-                    alt="Pádel Nation Córdoba"
-                >
+
+            <!-- LOGO -->
+
+            <a href="#inicio"
+               class="brand"
+               aria-label="Padel Nation Córdoba">
+
+                <img src="827A282C-CA48-429D-8D7F-77B0D315A677"
+                     alt="Padel Nation Córdoba">
+
             </a>
 
 
-            <nav class="nav" id="nav">
 
-                <a href="#inicio">Inicio</a>
+            <!-- NAVEGACIÓN DESKTOP -->
 
-                <a href="#nosotros">Nosotros</a>
+            <nav class="main-nav"
+                 aria-label="Navegación principal">
 
-                <a href="#espacio">Nuestro espacio</a>
+                <a href="#club">
+                    <span>01</span>
+                    EL CLUB
+                </a>
 
-                <a href="#reservar">Reservar</a>
+                <a href="#servicios">
+                    <span>03</span>
+                    SERVICIOS
+                </a>
 
-                <a href="#contacto">Contacto</a>
+                <a href="#galeria">
+                    <span>06</span>
+                    GALERÍA
+                </a>
+
+                <a href="#contacto">
+                    <span>07</span>
+                    CONTACTO
+                </a>
 
             </nav>
 
 
-            <button
-                class="menu-toggle"
-                id="menu-toggle"
-                type="button"
-                aria-label="Abrir menú"
-            >
-                <i class="fa-solid fa-bars"></i>
+
+            <!-- BOTÓN RESERVAR -->
+
+            <a href="#contacto"
+               class="header-book">
+
+                RESERVAR
+
+                <span>↗</span>
+
+            </a>
+
+
+
+            <!-- BOTÓN MOBILE -->
+
+            <button class="menu-toggle"
+                    type="button"
+                    aria-label="Abrir menú"
+                    aria-expanded="false">
+
+                <span></span>
+                <span></span>
+
             </button>
+
 
         </div>
 
@@ -69,706 +167,861 @@
 
 
 
-    <main>
+    <!-- ==================================================
+         MENÚ MOBILE
+    =================================================== -->
 
-        <!-- =================================================
-             HERO / INICIO
-        ================================================== -->
+    <div class="mobile-menu">
 
-        <section class="hero" id="inicio">
+        <div class="mobile-menu-inner">
 
-            <img
-                class="hero-background"
-                src="IMG_2555.jpg"
-                alt="Pádel Nation Córdoba"
-            >
-
-            <div class="hero-overlay"></div>
-
-
-            <div class="hero-content">
-
-                <div class="hero-location">
-
-                    <i class="fa-solid fa-location-dot"></i>
-
-                    <span>Córdoba, Argentina</span>
-
-                </div>
-
-
-                <p class="hero-brand">
-                    PÁDEL NATION CÓRDOBA
-                </p>
-
-
-                <h1>
-                    Viví el pádel.
-                    <span>Viví Nation.</span>
-                </h1>
-
-
-                <p class="hero-description">
-                    Un espacio para jugar, competir y compartir
-                    tu pasión por el pádel.
-                </p>
-
-
-                <div class="hero-place">
-
-                    <div class="hero-place-icon">
-
-                        <i class="fa-solid fa-map-location-dot"></i>
-
-                    </div>
-
-
-                    <div class="hero-place-info">
-
-                        <small>
-                            ENCONTRANOS EN
-                        </small>
-
-                        <strong>
-                            Córdoba Capital
-                        </strong>
-
-                    </div>
-
-
-                    <a href="#contacto">
-
-                        Ver ubicación
-
-                        <i class="fa-solid fa-arrow-right"></i>
-
-                    </a>
-
-                </div>
-
-
-                <div class="hero-buttons">
-
-                    <a
-                        href="#reservar"
-                        class="btn btn-primary"
-                    >
-                        <i class="fa-solid fa-calendar-check"></i>
-                        Reservar cancha
-                    </a>
-
-
-                    <a
-                        href="#espacio"
-                        class="btn btn-secondary"
-                    >
-                        Conocé el espacio
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <a
-                href="#nosotros"
-                class="scroll-down"
-                aria-label="Bajar"
-            >
-                <i class="fa-solid fa-chevron-down"></i>
-            </a>
-
-        </section>
-
-
-
-        <!-- =================================================
-             NOSOTROS
-        ================================================== -->
-
-        <section
-            class="section nosotros"
-            id="nosotros"
-        >
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <p class="section-tag">
-                        PÁDEL NATION
-                    </p>
-
-                    <h2>
-                        Más que una cancha.
-                    </h2>
-
-                    <p>
-                        Un lugar pensado para disfrutar cada partido,
-                        compartir con amigos y vivir el pádel.
-                    </p>
-
-                </div>
-
-
-                <div class="features">
-
-                    <!-- CANCHAS -->
-
-                    <article class="feature">
-
-                        <div class="feature-icon">
-
-                            <i class="fa-solid fa-table-tennis-paddle-ball"></i>
-
-                        </div>
-
-                        <div class="feature-content">
-
-                            <h3>
-                                Canchas
-                            </h3>
-
-                            <p>
-                                Espacios preparados para disfrutar
-                                cada partido.
-                            </p>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- TORNEOS -->
-
-                    <article class="feature">
-
-                        <div class="feature-icon">
-
-                            <i class="fa-solid fa-trophy"></i>
-
-                        </div>
-
-                        <div class="feature-content">
-
-                            <h3>
-                                Torneos
-                            </h3>
-
-                            <p>
-                                Competencia y encuentros para
-                                disfrutar el deporte.
-                            </p>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- COMUNIDAD -->
-
-                    <article class="feature">
-
-                        <div class="feature-icon">
-
-                            <i class="fa-solid fa-users"></i>
-
-                        </div>
-
-                        <div class="feature-content">
-
-                            <h3>
-                                Comunidad
-                            </h3>
-
-                            <p>
-                                Pádel, amigos y buenos momentos
-                                dentro y fuera de la cancha.
-                            </p>
-
-                        </div>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             NUESTRO ESPACIO
-        ================================================== -->
-
-        <section
-            class="section espacio"
-            id="espacio"
-        >
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <p class="section-tag">
-                        CONOCÉ EL LUGAR
-                    </p>
-
-                    <h2>
-                        Nuestro espacio.
-                    </h2>
-
-                    <p>
-                        Conocé las instalaciones de
-                        Pádel Nation Córdoba.
-                    </p>
-
-                </div>
-
-
-                <div class="gallery">
-
-
-                    <!-- FOTO 1 -->
-
-                    <button
-                        class="gallery-item gallery-large"
-                        type="button"
-                        data-image="IMG_2491.jpg"
-                        aria-label="Ver imagen ampliada"
-                    >
-
-                        <img
-                            src="IMG_2491.jpg"
-                            alt="Vista central del establecimiento"
-                            loading="lazy"
-                        >
-
-                    </button>
-
-
-                    <!-- FOTO 2 -->
-
-                    <button
-                        class="gallery-item"
-                        type="button"
-                        data-image="IMG_2510.jpg"
-                        aria-label="Ver imagen ampliada"
-                    >
-
-                        <img
-                            src="IMG_2510.jpg"
-                            alt="Vista general del establecimiento"
-                            loading="lazy"
-                        >
-
-                    </button>
-
-
-                    <!-- FOTO 3 -->
-
-                    <button
-                        class="gallery-item"
-                        type="button"
-                        data-image="IMG_2493.jpg"
-                        aria-label="Ver imagen ampliada"
-                    >
-
-                        <img
-                            src="IMG_2493.jpg"
-                            alt="Kiosquito de Pádel Nation"
-                            loading="lazy"
-                        >
-
-                    </button>
-
-
-                    <!-- FOTO 4 -->
-
-                    <button
-                        class="gallery-item"
-                        type="button"
-                        data-image="IMG_2535.jpg"
-                        aria-label="Ver imagen ampliada"
-                    >
-
-                        <img
-                            src="IMG_2535.jpg"
-                            alt="Pasillo entre las canchas"
-                            loading="lazy"
-                        >
-
-                    </button>
-
-
-                    <!-- FOTO 5 -->
-
-                    <button
-                        class="gallery-item"
-                        type="button"
-                        data-image="IMG_2517.jpg"
-                        aria-label="Ver imagen ampliada"
-                    >
-
-                        <img
-                            src="IMG_2517.jpg"
-                            alt="Instalaciones de Pádel Nation"
-                            loading="lazy"
-                        >
-
-                    </button>
-
-
-                    <!-- FOTO 6 -->
-
-                    <button
-                        class="gallery-item"
-                        type="button"
-                        data-image="IMG_2508.jpg"
-                        aria-label="Ver imagen ampliada"
-                    >
-
-                        <img
-                            src="IMG_2508.jpg"
-                            alt="Vista de las instalaciones"
-                            loading="lazy"
-                        >
-
-                    </button>
-
-
-                    <!-- FOTO 7 -->
-
-                    <button
-                        class="gallery-item"
-                        type="button"
-                        data-image="IMG_2555.jpg"
-                        aria-label="Ver imagen ampliada"
-                    >
-
-                        <img
-                            src="IMG_2555.jpg"
-                            alt="Vista general de Pádel Nation Córdoba"
-                            loading="lazy"
-                        >
-
-                    </button>
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             RESERVAR
-        ================================================== -->
-
-        <section
-            class="reserve"
-            id="reservar"
-        >
-
-            <img
-                class="reserve-background"
-                src="IMG_2508.jpg"
-                alt=""
-                loading="lazy"
-            >
-
-            <div class="reserve-overlay"></div>
-
-
-            <div class="reserve-content">
-
-                <p class="section-tag">
-                    TU PRÓXIMO PARTIDO
-                </p>
-
-
-                <h2>
-                    ¿Listo para jugar?
-                </h2>
-
-
-                <p>
-                    Consultá disponibilidad y reservá
-                    tu cancha directamente.
-                </p>
-
-
-                <a
-                    href="#contacto"
-                    class="btn btn-whatsapp"
-                >
-
-                    <i class="fa-brands fa-whatsapp"></i>
-
-                    Reservar por WhatsApp
-
-                </a>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             CONTACTO
-        ================================================== -->
-
-        <section
-            class="section contacto"
-            id="contacto"
-        >
-
-            <div class="container contact-grid">
-
-
-                <!-- INFORMACIÓN -->
-
-                <div class="contact-info">
-
-                    <p class="section-tag">
-                        ENCONTRANOS
-                    </p>
-
-
-                    <h2>
-                        Vení a Pádel Nation.
-                    </h2>
-
-
-                    <p class="contact-description">
-                        Jugá, compartí y disfrutá del pádel
-                        en nuestras instalaciones.
-                    </p>
-
-
-                    <div class="contact-list">
-
-
-                        <!-- UBICACIÓN -->
-
-                        <div class="contact-item">
-
-                            <div class="contact-icon">
-
-                                <i class="fa-solid fa-location-dot"></i>
-
-                            </div>
-
-
-                            <div>
-
-                                <small>
-                                    UBICACIÓN
-                                </small>
-
-                                <strong>
-                                    Córdoba Capital
-                                </strong>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- WHATSAPP -->
-
-                        <div class="contact-item">
-
-                            <div class="contact-icon">
-
-                                <i class="fa-brands fa-whatsapp"></i>
-
-                            </div>
-
-
-                            <div>
-
-                                <small>
-                                    WHATSAPP
-                                </small>
-
-                                <strong>
-                                    Consultanos
-                                </strong>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- INSTAGRAM -->
-
-                        <div class="contact-item">
-
-                            <div class="contact-icon">
-
-                                <i class="fa-brands fa-instagram"></i>
-
-                            </div>
-
-
-                            <div>
-
-                                <small>
-                                    INSTAGRAM
-                                </small>
-
-                                <strong>
-                                    Pádel Nation Córdoba
-                                </strong>
-
-                            </div>
-
-                        </div>
-
-
-                    </div>
-
-
-                    <a
-                        href="#"
-                        class="btn btn-map"
-                    >
-
-                        <i class="fa-solid fa-location-arrow"></i>
-
-                        Cómo llegar
-
-                    </a>
-
-                </div>
-
-
-
-                <!-- FOTO -->
-
-                <div class="contact-image">
-
-                    <img
-                        src="IMG_2535.jpg"
-                        alt="Instalaciones de Pádel Nation Córdoba"
-                        loading="lazy"
-                    >
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-
-    <!-- =====================================================
-         FOOTER
-    ====================================================== -->
-
-    <footer class="footer">
-
-        <div class="footer-container">
-
-
-            <a
-                href="#inicio"
-                class="footer-logo"
-            >
-
-                <img
-                    src="827A282C-CA48-429D-8D7F-77B0D315A677.png"
-                    alt="Pádel Nation Córdoba"
-                >
-
-            </a>
-
-
-            <p>
-                Viví el pádel. Viví Nation.
+            <p class="mobile-menu-label">
+                PADEL NATION / CÓRDOBA
             </p>
 
 
-            <div class="footer-socials">
+            <nav>
 
-                <a
-                    href="#"
-                    aria-label="Instagram"
-                >
-                    <i class="fa-brands fa-instagram"></i>
+                <a href="#inicio">
+                    <span>00</span>
+                    INICIO
                 </a>
 
-
-                <a
-                    href="#"
-                    aria-label="WhatsApp"
-                >
-                    <i class="fa-brands fa-whatsapp"></i>
+                <a href="#club">
+                    <span>01</span>
+                    EL CLUB
                 </a>
 
-            </div>
+        
+                <a href="#servicios">
+                    <span>03</span>
+                    SERVICIOS
+                </a>
+
+                <a href="#galeria">
+                    <span>06</span>
+                    GALERÍA
+                </a>
+
+                <a href="#contacto">
+                    <span>07</span>
+                    CONTACTO
+                </a>
+
+            </nav>
+
+
+            <a href="#contacto"
+               class="mobile-book">
+
+                RESERVAR CANCHA
+
+                <span>↗</span>
+
+            </a>
 
         </div>
-
-
-        <div class="footer-bottom">
-
-            <p>
-                ©
-                <span id="year"></span>
-                Pádel Nation Córdoba.
-                Todos los derechos reservados.
-            </p>
-
-        </div>
-
-    </footer>
-
-
-
-    <!-- =====================================================
-         MODAL DE GALERÍA
-    ====================================================== -->
-
-    <div
-        class="modal"
-        id="modal"
-        aria-hidden="true"
-    >
-
-        <button
-            class="modal-close"
-            id="modal-close"
-            type="button"
-            aria-label="Cerrar imagen"
-        >
-
-            <i class="fa-solid fa-xmark"></i>
-
-        </button>
-
-
-        <img
-            id="modal-image"
-            src=""
-            alt=""
-        >
 
     </div>
 
 
 
-    <!-- JAVASCRIPT -->
+    <!-- ==================================================
+         MAIN
+    =================================================== -->
+
+    <main id="inicio">
+
+
+
+        <!-- ==================================================
+             HERO
+        =================================================== -->
+
+        <section class="hero"
+                 id="hero">
+
+
+            <!-- FONDO -->
+
+            <div class="hero-background">
+
+                <div class="hero-grid"></div>
+
+                <div class="hero-gradient"></div>
+
+            </div>
+
+
+
+            <!-- PELOTA -->
+
+            <div class="hero-ball"
+                 aria-hidden="true">
+
+                <div class="ball-seam"></div>
+
+            </div>
+
+
+
+            <!-- CONTENIDO -->
+
+            <div class="hero-content">
+
+
+                <div class="hero-eyebrow reveal">
+
+                    <span class="eyebrow-line"></span>
+
+                    CÓRDOBA CAPITAL
+
+                    <span class="eyebrow-dot"></span>
+
+                    100% INDOOR
+
+                </div>
+
+
+
+                <h1 class="hero-title reveal">
+
+                    NO ES SOLO
+
+                    <span>PÁDEL.</span>
+
+                    <em>
+                        ES EXPERIENCIA.
+                    </em>
+
+                </h1>
+
+
+
+                <p class="hero-description reveal">
+
+                    Jugá, competí y quedate a disfrutar.
+                    Todo en un mismo lugar.
+
+                </p>
+
+
+
+                <div class="hero-actions reveal">
+
+                    <a href="#contacto"
+                       class="btn btn-primary">
+
+                        RESERVAR CANCHA
+
+                        <span>↗</span>
+
+                    </a>
+
+
+                    <a href="#club"
+                       class="btn btn-outline">
+
+                        CONOCER EL CLUB
+
+                        <span>↓</span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- LATERAL -->
+
+            <div class="hero-side">
+
+                <span>PADEL NATION</span>
+
+                <span>01 — 07</span>
+
+            </div>
+
+
+
+            <!-- SCROLL -->
+
+            <a href="#club"
+               class="hero-scroll">
+
+                <span>SCROLL</span>
+
+                <i></i>
+
+            </a>
+
+
+
+            <!-- DECORACIÓN -->
+
+            <div class="hero-corner hero-corner-top">
+                +
+            </div>
+
+            <div class="hero-corner hero-corner-bottom">
+                +
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==================================================
+             EL CLUB
+        =================================================== -->
+
+        <section class="club section-dark"
+                 id="club">
+
+
+            <div class="section-number">
+                01 / EL CLUB
+            </div>
+
+
+
+            <div class="club-container">
+
+
+                <div class="section-heading reveal">
+
+                    <p class="eyebrow">
+
+                        <span></span>
+
+                        BIENVENIDOS A NATION
+
+                    </p>
+
+
+                    <h2>
+
+                        JUGÁ SIN
+
+                        <strong>
+                            IMPORTAR EL CLIMA.
+                        </strong>
+
+                    </h2>
+
+                </div>
+
+
+
+                <div class="club-description reveal">
+
+                    <p class="club-lead">
+
+                        Pádel 100% indoor
+                        en Córdoba Capital.
+
+                    </p>
+
+
+                    <p>
+
+                        Un espacio pensado para jugar,
+                        entrenar, competir y compartir.
+
+                        Porque acá el partido
+                        es solo el comienzo.
+
+                    </p>
+
+
+                    <a href="#servicios"
+                       class="text-link">
+
+                        DESCUBRÍ TODO LO QUE TENEMOS
+
+                        <span>→</span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ESTADÍSTICAS -->
+
+            <div class="club-stats reveal">
+
+
+                <div class="stat">
+
+                    <strong>04</strong>
+
+                    <span>
+                        CANCHAS
+                    </span>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <strong>100%</strong>
+
+                    <span>
+                        INDOOR
+                    </span>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <strong>∞</strong>
+
+                    <span>
+                        EXPERIENCIAS
+                    </span>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <strong>01</strong>
+
+                    <span>
+                        TERCER TIEMPO
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- ==================================================
+             SERVICIOS
+        =================================================== -->
+
+        <section class="services section-light"
+                 id="servicios">
+
+
+            <div class="section-number dark-number">
+                03 / SERVICIOS
+            </div>
+
+
+
+            <div class="services-header">
+
+
+                <div class="section-heading reveal">
+
+                    <p class="eyebrow dark-eyebrow">
+
+                        <span></span>
+
+                        MÁS QUE UNA CANCHA
+
+                    </p>
+
+
+                    <h2>
+
+                        TODO
+
+                        <strong>
+                            EN NATION.
+                        </strong>
+
+                    </h2>
+
+                </div>
+
+
+
+                <p class="services-description reveal">
+
+                    Desde tu primer partido hasta
+                    el torneo que estabas esperando.
+
+                    Una experiencia pensada para
+                    que siempre tengas un motivo
+                    para volver.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- SERVICIOS -->
+
+            <div class="service-grid">
+
+
+                <article class="service-card reveal">
+
+                    <div class="service-top">
+
+                        <span>01</span>
+
+                        <span class="service-icon">
+                            
+                        </span>
+
+                    </div>
+
+
+                    <h3>
+
+                        ALQUILER
+
+                        <br>
+
+                        DE CANCHAS
+
+                    </h3>
+
+
+                    <p>
+                        Reservá tu turno
+                        y salí a jugar.
+                    </p>
+
+                </article>
+
+
+
+                <article class="service-card featured reveal">
+
+                    <div class="service-top">
+
+                        <span>02</span>
+
+                        <span class="service-icon">
+                            
+                        </span>
+
+                    </div>
+
+
+                    <h3>
+
+                        CLASES Y
+
+                        <br>
+
+                        ENTRENAMIENTOS
+
+                    </h3>
+
+
+                    <p>
+                        Mejorá tu juego
+                        acompañado.
+                    </p>
+
+                </article>
+
+
+
+                <article class="service-card reveal">
+
+                    <div class="service-top">
+
+                        <span>03</span>
+
+                        <span class="service-icon">
+                            
+                        </span>
+
+                    </div>
+
+
+                    <h3>
+
+                        TORNEOS
+
+                        <br>
+
+                        MENSUALES
+
+                    </h3>
+
+
+                    <p>
+                        Competí.
+                        Superate.
+                    </p>
+
+                </article>
+
+
+
+                <article class="service-card reveal">
+
+                    <div class="service-top">
+
+                        <span>04</span>
+
+                        <span class="service-icon">
+                            
+                        </span>
+
+                    </div>
+
+
+                    <h3>
+                        EXHIBICIONES
+                    </h3>
+
+
+                    <p>
+                        Viví el pádel
+                        de otra manera.
+                    </p>
+
+                </article>
+
+
+
+                <article class="service-card reveal">
+
+                    <div class="service-top">
+
+                        <span>05</span>
+
+                        <span class="service-icon">
+                            
+                        </span>
+
+                    </div>
+
+
+                    <h3>
+
+                        EVENTOS
+
+                        <br>
+
+                        CORPORATIVOS
+
+                    </h3>
+
+
+                    <p>
+                        Tu equipo
+                        también juega.
+                    </p>
+
+                </article>
+
+
+            </div>
+
+
+        </section>
+
+        <!-- ==================================================
+             GALERÍA
+        =================================================== -->
+
+        <section class="gallery section-light"
+                 id="galeria">
+
+
+            <div class="section-number dark-number">
+                06 / GALERÍA
+            </div>
+
+
+
+            <div class="section-heading centered reveal">
+
+                <p class="eyebrow dark-eyebrow">
+
+                    <span></span>
+
+                    VIVÍ NATION
+
+                    <span></span>
+
+                </p>
+
+
+                <h2>
+
+                    ESTO NO SE
+
+                    <strong>
+                        CUENTA.
+                    </strong>
+
+                </h2>
+
+            </div>
+
+
+
+            <div class="gallery-grid">
+
+
+                <div class="gallery-item gallery-item-large reveal">
+
+                    <div class="gallery-placeholder">
+                        <span>PADEL</span>
+                    </div>
+
+                </div>
+
+
+
+                <div class="gallery-item reveal">
+
+                    <div class="gallery-placeholder">
+                        <span>NATION</span>
+                    </div>
+
+                </div>
+
+
+
+                <div class="gallery-item reveal">
+
+                    <div class="gallery-placeholder">
+                        <span>PLAY</span>
+                    </div>
+
+                </div>
+
+
+
+                <div class="gallery-item reveal">
+
+                    <div class="gallery-placeholder">
+                        <span>THIRD TIME</span>
+                    </div>
+
+                </div>
+
+
+
+                <div class="gallery-item reveal">
+
+                    <div class="gallery-placeholder">
+                        <span>REPEAT</span>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==================================================
+             CONTACTO
+        =================================================== -->
+
+        <section class="contact section-dark"
+                 id="contacto">
+
+
+            <div class="section-number">
+                07 / CONTACTO
+            </div>
+
+
+
+            <div class="contact-background">
+
+                <div class="contact-ball"></div>
+
+                <div class="contact-glow"></div>
+
+            </div>
+
+
+
+            <div class="contact-container reveal">
+
+
+                <p class="eyebrow">
+
+                    <span></span>
+
+                    RESERVAS Y CONSULTAS
+
+                </p>
+
+
+                <h2>
+                    ¿JUGAMOS?
+                </h2>
+
+
+
+                <a href="tel:+543517427878"
+                   class="contact-phone">
+
+                    351 742 7878
+
+                </a>
+
+
+
+                <div class="contact-details">
+
+
+                    <div class="contact-detail">
+
+                        <span>
+                            UBICACIÓN
+                        </span>
+
+                        <p>
+
+                            López y Planes 3200
+
+                            <br>
+
+                            Barrio San Vicente
+
+                            <br>
+
+                            Córdoba Capital
+
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="contact-detail">
+
+                        <span>
+                            HORARIOS
+                        </span>
+
+                        <p>
+
+                            Consultá disponibilidad
+
+                            <br>
+
+                            por WhatsApp.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="contact-detail">
+
+                        <span>
+                            INSTAGRAM
+                        </span>
+
+                        <p>
+
+                            @padelnationcordoba
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <a href="https://wa.me/543517427878"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn btn-primary contact-button">
+
+                    RESERVAR POR WHATSAPP
+
+                    <span>↗</span>
+
+                </a>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ==================================================
+         FOOTER
+    =================================================== -->
+
+    <footer class="site-footer">
+
+
+        <div class="footer-logo">
+
+            <img src="827A282C-CA48-429D-8D7F-77B0D315A677"
+                 alt="Padel Nation Córdoba">
+
+        </div>
+
+
+
+        <div class="footer-slogan">
+
+            NO ES SOLO PÁDEL.
+
+            <strong>
+                ES EXPERIENCIA.
+            </strong>
+
+        </div>
+
+
+
+        <div class="footer-info">
+
+            <span>
+                CÓRDOBA · ARGENTINA
+            </span>
+
+            <span>
+                © 2026 PADEL NATION
+            </span>
+
+        </div>
+
+
+    </footer>
+
+
+
+    <!-- ==================================================
+         JAVASCRIPT
+    =================================================== -->
 
     <script src="script.js"></script>
+
 
 </body>
 
