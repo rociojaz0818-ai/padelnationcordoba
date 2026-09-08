@@ -8,27 +8,29 @@
    PRELOADER
 ========================================================= */
 
-const preloader = document.getElementById("preloader");
+// PRELOADER
+window.addEventListener("load", function () {
+    const preloader = document.getElementById("preloader");
 
+    setTimeout(() => {
+        if (preloader) {
+            preloader.classList.add("hidden");
+        }
 
-// Bloqueamos el scroll mientras carga
-if (preloader) {
+        document.body.classList.remove("preloader-active");
+    }, 1800);
+});
 
-    document.body.classList.add("preloader-active");
+// Seguro adicional: evita que quede trabado
+setTimeout(() => {
+    const preloader = document.getElementById("preloader");
 
-    window.addEventListener("load", function () {
+    if (preloader) {
+        preloader.classList.add("hidden");
+    }
 
-        setTimeout(function () {
-
-            preloader.classList.add("hide");
-
-            document.body.classList.remove("preloader-active");
-
-        }, 1800);
-
-    });
-
-}
+    document.body.classList.remove("preloader-active");
+}, 4000);
 
 
 
