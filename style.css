@@ -3,9 +3,15 @@
    STYLE.CSS
 ========================================================= */
 
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
 :root {
     --blue: #0878ff;
     --blue-dark: #0053c7;
+
     --lime: #baf000;
     --lime-bright: #c9ff00;
 
@@ -60,18 +66,31 @@ body {
 
 img {
     display: block;
+
     max-width: 100%;
 }
 
 
 a {
     color: inherit;
+
     text-decoration: none;
 }
 
 
 button {
     font: inherit;
+}
+
+
+/* =========================================================
+   SELECCIÓN
+========================================================= */
+
+::selection {
+    background: var(--lime);
+
+    color: var(--black);
 }
 
 
@@ -91,6 +110,7 @@ button {
 
 ::-webkit-scrollbar-thumb {
     background: var(--blue);
+
     border-radius: 20px;
 }
 
@@ -113,12 +133,6 @@ button {
     width: 100%;
     height: 82px;
 
-    padding: 0 5%;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
     z-index: 1000;
 
     background: rgba(2, 5, 9, 0.82);
@@ -130,15 +144,45 @@ button {
 }
 
 
+.header-container {
+    width: 100%;
+    max-width: var(--max-width);
+
+    height: 100%;
+
+    margin: 0 auto;
+
+    padding: 0 5%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
 .logo {
     width: 155px;
+
     flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
 }
 
 
 .logo img {
     width: 100%;
+
     height: auto;
+
+    object-fit: contain;
 }
 
 
@@ -148,7 +192,9 @@ button {
 
 .nav {
     display: flex;
+
     align-items: center;
+
     gap: 31px;
 }
 
@@ -159,6 +205,7 @@ button {
     color: rgba(255, 255, 255, 0.82);
 
     font-size: 0.9rem;
+
     font-weight: 700;
 
     transition: var(--transition);
@@ -193,7 +240,7 @@ button {
 
 
 /* =========================================================
-   MOBILE MENU
+   BOTÓN MENÚ MOBILE
 ========================================================= */
 
 .menu-toggle {
@@ -214,6 +261,15 @@ button {
     color: var(--white);
 
     cursor: pointer;
+
+    transition: var(--transition);
+}
+
+
+.menu-toggle:hover {
+    color: var(--lime);
+
+    border-color: var(--lime);
 }
 
 
@@ -227,11 +283,14 @@ button {
     min-height: 100svh;
 
     display: flex;
+
     align-items: center;
 
     overflow: hidden;
 }
 
+
+/* FOTO */
 
 .hero-background {
     position: absolute;
@@ -242,9 +301,12 @@ button {
     height: 100%;
 
     object-fit: cover;
+
     object-position: center;
 }
 
+
+/* OSCURECIMIENTO */
 
 .hero-overlay {
     position: absolute;
@@ -262,12 +324,15 @@ button {
 }
 
 
+/* CONTENIDO */
+
 .hero-content {
     position: relative;
 
     z-index: 2;
 
     width: 100%;
+
     max-width: var(--max-width);
 
     margin: 0 auto;
@@ -276,9 +341,13 @@ button {
 }
 
 
+/* UBICACIÓN SUPERIOR */
+
 .hero-location {
     display: inline-flex;
+
     align-items: center;
+
     gap: 8px;
 
     margin-bottom: 18px;
@@ -286,21 +355,32 @@ button {
     color: var(--lime);
 
     font-size: 0.84rem;
+
     font-weight: 800;
 }
 
 
-.hero-small {
-    margin-bottom: 9px;
+.hero-location i {
+    font-size: 0.85rem;
+}
+
+
+/* MARCA */
+
+.hero-brand {
+    margin-bottom: 10px;
 
     color: rgba(255, 255, 255, 0.72);
 
     font-size: 0.9rem;
+
     font-weight: 900;
 
     letter-spacing: 6px;
 }
 
+
+/* TÍTULO */
 
 .hero h1 {
     max-width: 900px;
@@ -319,25 +399,28 @@ button {
 
 .hero h1 span {
     display: block;
+
     color: var(--lime);
 }
 
 
+/* DESCRIPCIÓN */
+
 .hero-description {
     max-width: 610px;
 
-    margin-bottom: 25px;
+    margin-bottom: 26px;
 
     color: rgba(255, 255, 255, 0.82);
 
-    font-size: 1.15rem;
+    font-size: clamp(1rem, 2vw, 1.15rem);
 
     line-height: 1.55;
 }
 
 
 /* =========================================================
-   UBICACIÓN
+   UBICACIÓN HERO
 ========================================================= */
 
 .hero-place {
@@ -350,6 +433,7 @@ button {
     padding: 13px 16px;
 
     display: flex;
+
     align-items: center;
 
     gap: 13px;
@@ -361,55 +445,66 @@ button {
     background: rgba(0, 0, 0, 0.32);
 
     backdrop-filter: blur(10px);
+
+    -webkit-backdrop-filter: blur(10px);
 }
 
 
-.hero-place > i {
+.hero-place-icon {
     color: var(--lime);
+
     font-size: 1.25rem;
 }
 
 
-.hero-place div {
+.hero-place-info {
     display: flex;
+
     flex-direction: column;
 }
 
 
-.hero-place small {
+.hero-place-info small {
     color: var(--gray);
 
     font-size: 0.66rem;
+
     font-weight: 800;
 
     letter-spacing: 1px;
 }
 
 
-.hero-place strong {
+.hero-place-info strong {
+    color: var(--white);
+
     font-size: 0.9rem;
 }
 
 
-.hero-place a {
+.hero-place > a {
     margin-left: auto;
 
-    display: flex;
+    display: inline-flex;
+
     align-items: center;
+
     gap: 6px;
 
     color: var(--lime);
 
     font-size: 0.75rem;
+
     font-weight: 900;
+
+    white-space: nowrap;
+
+    transition: var(--transition);
 }
 
 
-.hero-buttons {
-    display: flex;
-    gap: 12px;
-
-    flex-wrap: wrap;
+.hero-place > a:hover {
+    color: var(--white);
 }
 
 
@@ -417,13 +512,26 @@ button {
    BOTONES
 ========================================================= */
 
+.hero-buttons {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+
 .btn {
     min-height: 54px;
 
     padding: 0 28px;
 
     display: inline-flex;
+
     align-items: center;
+
     justify-content: center;
 
     gap: 10px;
@@ -431,14 +539,18 @@ button {
     border-radius: 50px;
 
     font-size: 0.88rem;
+
     font-weight: 900;
 
     transition: var(--transition);
+
+    cursor: pointer;
 }
 
 
 .btn-primary {
     background: var(--lime);
+
     color: var(--black);
 
     box-shadow:
@@ -450,6 +562,9 @@ button {
     background: var(--lime-bright);
 
     transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 40px rgba(186, 240, 0, 0.30);
 }
 
 
@@ -465,8 +580,65 @@ button {
 
 
 .btn-secondary:hover {
+    background: rgba(186, 240, 0, 0.10);
+
     border-color: var(--lime);
+
     transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   SCROLL
+========================================================= */
+
+.scroll-down {
+    position: absolute;
+
+    z-index: 3;
+
+    left: 50%;
+
+    bottom: 28px;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.24);
+
+    border-radius: 50%;
+
+    color: var(--white);
+
+    transform: translateX(-50%);
+
+    animation: scrollBounce 2s infinite;
+}
+
+
+.scroll-down:hover {
+    color: var(--lime);
+
+    border-color: var(--lime);
+}
+
+
+@keyframes scrollBounce {
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(7px);
+    }
+
 }
 
 
@@ -481,29 +653,14 @@ button {
 
 .container {
     width: 100%;
+
     max-width: var(--max-width);
 
     margin: 0 auto;
 }
 
 
-.nosotros {
-    background:
-        radial-gradient(
-            circle at 50% 0%,
-            rgba(0, 108, 255, 0.14),
-            transparent 43%
-        ),
-        var(--dark);
-}
-
-
-.espacio {
-    background: var(--black);
-}
-
-
-.section-title {
+.section-heading {
     max-width: 720px;
 
     margin: 0 auto 58px;
@@ -527,7 +684,7 @@ button {
 }
 
 
-.section-title h2,
+.section-heading h2,
 .contact-info h2,
 .reserve-content h2 {
     margin-bottom: 20px;
@@ -542,14 +699,29 @@ button {
 }
 
 
-.section-title > p:last-child {
+.section-heading > p:last-child {
     color: var(--gray);
+
+    font-size: 1rem;
 }
 
 
 /* =========================================================
-   FEATURES
+   NOSOTROS
 ========================================================= */
+
+.nosotros {
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(0, 108, 255, 0.14),
+            transparent 43%
+        ),
+        var(--dark);
+}
+
+
+/* FEATURES */
 
 .features {
     display: grid;
@@ -564,6 +736,7 @@ button {
     padding: 32px 28px;
 
     display: flex;
+
     align-items: flex-start;
 
     gap: 18px;
@@ -579,19 +752,22 @@ button {
 
 
 .feature:hover {
-    transform: translateY(-6px);
+    transform: translateY(-7px);
 
     border-color: rgba(186, 240, 0, 0.35);
+
+    background: rgba(255, 255, 255, 0.045);
 }
 
 
 .feature-icon {
     flex-shrink: 0;
 
-    width: 55px;
-    height: 55px;
+    width: 57px;
+    height: 57px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -601,12 +777,14 @@ button {
 
     color: var(--lime);
 
-    font-size: 1.3rem;
+    font-size: 1.35rem;
 }
 
 
 .feature h3 {
     margin-bottom: 5px;
+
+    font-size: 1.15rem;
 }
 
 
@@ -618,8 +796,13 @@ button {
 
 
 /* =========================================================
-   GALERÍA
+   ESPACIO / GALERÍA
 ========================================================= */
+
+.espacio {
+    background: var(--black);
+}
+
 
 .gallery {
     display: grid;
@@ -649,13 +832,33 @@ button {
 }
 
 
+.gallery-item::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.38),
+            transparent 55%
+        );
+
+    opacity: 0;
+
+    transition: var(--transition);
+}
+
+
 .gallery-item img {
     width: 100%;
     height: 100%;
 
     object-fit: cover;
 
-    transition: transform 0.6s ease;
+    transition: transform 0.65s ease;
 }
 
 
@@ -664,8 +867,14 @@ button {
 }
 
 
+.gallery-item:hover::after {
+    opacity: 1;
+}
+
+
 .gallery-large {
     grid-column: span 2;
+
     grid-row: span 2;
 }
 
@@ -680,7 +889,9 @@ button {
     min-height: 520px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     padding: 100px 5%;
@@ -730,12 +941,20 @@ button {
     margin-bottom: 30px;
 
     color: rgba(255, 255, 255, 0.82);
+
+    font-size: 1.05rem;
 }
 
 
+/* WHATSAPP */
+
 .btn-whatsapp {
     background: #25d366;
-    color: white;
+
+    color: var(--white);
+
+    box-shadow:
+        0 10px 30px rgba(37, 211, 102, 0.20);
 }
 
 
@@ -743,6 +962,9 @@ button {
     background: #20bd5b;
 
     transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 40px rgba(37, 211, 102, 0.30);
 }
 
 
@@ -780,16 +1002,18 @@ button {
 
 .contact-list {
     display: flex;
+
     flex-direction: column;
 
-    gap: 18px;
+    gap: 19px;
 
-    margin-bottom: 30px;
+    margin-bottom: 31px;
 }
 
 
 .contact-item {
     display: flex;
+
     align-items: center;
 
     gap: 15px;
@@ -803,6 +1027,7 @@ button {
     height: 47px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -811,11 +1036,14 @@ button {
     background: rgba(0, 108, 255, 0.13);
 
     color: var(--lime);
+
+    font-size: 1rem;
 }
 
 
 .contact-item div:last-child {
     display: flex;
+
     flex-direction: column;
 }
 
@@ -824,6 +1052,7 @@ button {
     color: var(--gray-dark);
 
     font-size: 0.66rem;
+
     font-weight: 800;
 
     letter-spacing: 1px;
@@ -831,23 +1060,27 @@ button {
 
 
 .contact-item strong {
-    font-size: 0.94rem;
+    font-size: 0.95rem;
 }
 
 
 .btn-map {
     background: var(--blue);
-    color: white;
+
+    color: var(--white);
 }
 
 
 .btn-map:hover {
     background: var(--lime);
+
     color: var(--black);
 
     transform: translateY(-3px);
 }
 
+
+/* FOTO CONTACTO */
 
 .contact-image {
     height: 510px;
@@ -894,7 +1127,9 @@ button {
     padding: 45px 0;
 
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
 
     gap: 30px;
@@ -903,10 +1138,19 @@ button {
 
 .footer-logo {
     width: 175px;
+
+    flex-shrink: 0;
 }
 
 
-.footer-container p {
+.footer-logo img {
+    width: 100%;
+
+    height: auto;
+}
+
+
+.footer-container > p {
     color: var(--gray);
 
     font-size: 0.85rem;
@@ -915,6 +1159,7 @@ button {
 
 .footer-socials {
     display: flex;
+
     gap: 10px;
 }
 
@@ -924,12 +1169,15 @@ button {
     height: 42px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
     border: 1px solid var(--border);
 
     border-radius: 50%;
+
+    color: var(--white);
 
     transition: var(--transition);
 }
@@ -950,7 +1198,10 @@ button {
     text-align: center;
 
     border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
 
+
+.footer-bottom p {
     color: var(--gray-dark);
 
     font-size: 0.72rem;
@@ -958,7 +1209,7 @@ button {
 
 
 /* =========================================================
-   MODAL
+   MODAL GALERÍA
 ========================================================= */
 
 .modal {
@@ -969,14 +1220,17 @@ button {
     z-index: 2000;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
-    padding: 25px;
+    padding: 30px;
 
     background: rgba(0, 0, 0, 0.95);
 
     opacity: 0;
+
     visibility: hidden;
 
     pointer-events: none;
@@ -996,11 +1250,18 @@ button {
 
 .modal img {
     max-width: 95vw;
+
     max-height: 90vh;
+
+    width: auto;
+    height: auto;
 
     object-fit: contain;
 
     border-radius: 10px;
+
+    box-shadow:
+        0 25px 90px rgba(0, 0, 0, 0.6);
 }
 
 
@@ -1014,25 +1275,30 @@ button {
     height: 46px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.20);
 
     border-radius: 50%;
 
     background: rgba(255, 255, 255, 0.08);
 
-    color: white;
+    color: var(--white);
 
     cursor: pointer;
 
     font-size: 1.2rem;
+
+    transition: var(--transition);
 }
 
 
 .modal-close:hover {
     background: var(--lime);
+
+    border-color: var(--lime);
 
     color: var(--black);
 }
@@ -1044,25 +1310,52 @@ button {
 
 @media (max-width: 1000px) {
 
-    .nav {
-        gap: 20px;
+    .header-container {
+        padding: 0 4%;
     }
+
+
+    .logo {
+        width: 140px;
+    }
+
+
+    .nav {
+        gap: 21px;
+    }
+
 
     .nav a {
         font-size: 0.82rem;
     }
 
+
+    .hero h1 {
+        font-size: clamp(4rem, 8vw, 6.5rem);
+    }
+
+
     .gallery {
         grid-template-columns: repeat(2, 1fr);
+
+        grid-auto-rows: 240px;
     }
+
 
     .gallery-large {
         grid-column: span 2;
+
         grid-row: span 2;
     }
 
+
     .contact-grid {
         gap: 40px;
+    }
+
+
+    .contact-image {
+        height: 440px;
     }
 
 }
@@ -1074,9 +1367,14 @@ button {
 
 @media (max-width: 768px) {
 
+    /* HEADER */
+
     .header {
         height: 70px;
+    }
 
+
+    .header-container {
         padding: 0 20px;
     }
 
@@ -1102,7 +1400,10 @@ button {
         padding: 18px 20px 22px;
 
         display: flex;
+
         flex-direction: column;
+
+        align-items: stretch;
 
         gap: 4px;
 
@@ -1110,9 +1411,12 @@ button {
 
         backdrop-filter: blur(18px);
 
+        -webkit-backdrop-filter: blur(18px);
+
         border-bottom: 1px solid var(--border);
 
         opacity: 0;
+
         visibility: hidden;
 
         transform: translateY(-10px);
@@ -1131,11 +1435,18 @@ button {
 
 
     .nav a {
-        padding: 13px;
+        width: 100%;
+
+        padding: 13px 12px;
 
         border-radius: 9px;
 
         font-size: 0.9rem;
+    }
+
+
+    .nav a:hover {
+        background: rgba(255, 255, 255, 0.05);
     }
 
 
@@ -1144,17 +1455,19 @@ button {
     }
 
 
+    /* SECCIONES */
+
     .section {
         padding: 82px 20px;
     }
 
 
-    .section-title {
+    .section-heading {
         margin-bottom: 40px;
     }
 
 
-    .section-title h2,
+    .section-heading h2,
     .contact-info h2,
     .reserve-content h2 {
         font-size: clamp(2.4rem, 11vw, 3.7rem);
@@ -1166,6 +1479,8 @@ button {
     /* HERO */
 
     .hero {
+        min-height: 100svh;
+
         align-items: flex-end;
     }
 
@@ -1198,7 +1513,7 @@ button {
     }
 
 
-    .hero-small {
+    .hero-brand {
         margin-bottom: 9px;
 
         font-size: 0.68rem;
@@ -1208,6 +1523,8 @@ button {
 
 
     .hero h1 {
+        max-width: 100%;
+
         margin-bottom: 20px;
 
         font-size: clamp(3.5rem, 16vw, 5.5rem);
@@ -1225,8 +1542,11 @@ button {
     }
 
 
+    /* UBICACIÓN */
+
     .hero-place {
         width: 100%;
+
         min-width: 0;
 
         margin-bottom: 22px;
@@ -1237,26 +1557,41 @@ button {
     }
 
 
-    .hero-place strong {
+    .hero-place-icon {
+        font-size: 1.05rem;
+    }
+
+
+    .hero-place-info strong {
         font-size: 0.82rem;
     }
 
 
-    .hero-place a {
+    .hero-place > a {
+        margin-left: auto;
+
         font-size: 0.68rem;
     }
 
+
+    /* BOTONES */
 
     .hero-buttons {
         width: 100%;
 
         flex-direction: column;
+
         gap: 9px;
     }
 
 
     .hero-buttons .btn {
         width: 100%;
+    }
+
+
+    .scroll-down {
+        display: none;
     }
 
 
@@ -1273,6 +1608,12 @@ button {
         padding: 20px;
 
         gap: 15px;
+    }
+
+
+    .feature-icon {
+        width: 53px;
+        height: 53px;
     }
 
 
@@ -1318,6 +1659,13 @@ button {
     }
 
 
+    .reserve-content > p:not(.section-tag) {
+        font-size: 0.95rem;
+
+        margin-bottom: 27px;
+    }
+
+
     .btn-whatsapp {
         width: 100%;
     }
@@ -1352,11 +1700,20 @@ button {
     /* FOOTER */
 
     .footer-container {
+        width: calc(100% - 40px);
+
+        padding: 36px 0;
+
         flex-direction: column;
 
         text-align: center;
 
         gap: 18px;
+    }
+
+
+    .footer-logo {
+        width: 170px;
     }
 
 
@@ -1376,7 +1733,12 @@ button {
 
     .modal-close {
         top: 17px;
+
         right: 17px;
+
+        width: 42px;
+
+        height: 42px;
     }
 
 }
@@ -1388,7 +1750,7 @@ button {
 
 @media (max-width: 420px) {
 
-    .header {
+    .header-container {
         padding: 0 16px;
     }
 
@@ -1410,6 +1772,21 @@ button {
     }
 
 
+    .hero-description {
+        font-size: 0.9rem;
+    }
+
+
+    .hero-place {
+        padding: 10px;
+    }
+
+
+    .hero-place > a {
+        font-size: 0.64rem;
+    }
+
+
     .section {
         padding: 70px 16px;
     }
@@ -1422,6 +1799,31 @@ button {
 
     .contact-image {
         height: 250px;
+    }
+
+}
+
+
+/* =========================================================
+   PANTALLAS GRANDES
+========================================================= */
+
+@media (min-width: 1600px) {
+
+    .hero-content {
+        padding-top: 160px;
+    }
+
+
+    .hero h1 {
+        font-size: 8.5rem;
+    }
+
+
+    .section {
+        padding-top: 135px;
+
+        padding-bottom: 135px;
     }
 
 }
