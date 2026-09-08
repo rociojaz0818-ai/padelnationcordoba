@@ -1593,38 +1593,15 @@ img {
     background: var(--white);
     color: var(--black);
 }
-
 .gallery-grid {
-    width: min(900px, 100%);
-    margin: 70px auto 0;
-
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
-
-    align-items: start;
-}
-
-.gallery-item {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-}
-
-.gallery-item-large {
-    grid-column: span 1;
-}
-
-.gallery-item img {
-    display: block;
-    width: 100%;
-    height: auto;
+    margin-top: 80px;
+    width: 900px;
     max-width: 100%;
-}
-
-.gallery-item:hover img {
-    transform: scale(1.03);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
