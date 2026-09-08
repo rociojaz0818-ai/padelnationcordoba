@@ -814,3 +814,57 @@ if (
         .scrollBehavior = "auto";
 
 }
+/* =========================================================
+   PRELOADER CON LOGO
+========================================================= */
+
+.preloader-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+.preloader-logo img {
+    width: 220px;
+    max-width: 70vw;
+    height: auto;
+    display: block;
+}
+
+.preloader-line {
+    width: 220px;
+    max-width: 70vw;
+    height: 3px;
+    background: rgba(255,255,255,.15);
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.preloader-line span {
+    display: block;
+    width: 40%;
+    height: 100%;
+    background: var(--lime);
+    animation: preloaderLoading 1.2s ease-in-out infinite;
+}
+
+.preloader p {
+    margin-top: 20px;
+    text-align: center;
+    font-family: var(--body);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .2em;
+    color: rgba(255,255,255,.55);
+}
+
+@keyframes preloaderLoading {
+    0% {
+        transform: translateX(-150%);
+    }
+
+    100% {
+        transform: translateX(350%);
+    }
+}
