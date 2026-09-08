@@ -42,21 +42,20 @@ const revealElements = document.querySelectorAll(
 /* =========================================================
    PRELOADER
 ========================================================= */
+/* =========================================================
+   PRELOADER
+========================================================= */
 
-window.addEventListener("load", () => {
+if (preloader) {
 
     setTimeout(() => {
 
-        if (preloader) {
-            preloader.classList.add("hidden");
-        }
-
+        preloader.classList.add("hidden");
         body.classList.add("page-loaded");
 
     }, 1700);
 
-});
-
+}
 
 /* =========================================================
    MENÚ MOBILE
