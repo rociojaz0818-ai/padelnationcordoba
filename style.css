@@ -1586,6 +1586,8 @@ img {
     position: relative;
     padding: 160px 8vw 130px;
     overflow: hidden;
+    background: var(--white);
+    color: var(--black);
 }
 
 
@@ -1599,6 +1601,7 @@ img {
     font-size: clamp(70px, 10vw, 150px);
     line-height: .79;
     letter-spacing: -.025em;
+    color: var(--black);
 }
 
 .gallery h2 strong {
@@ -1607,48 +1610,39 @@ img {
 
 
 /* =========================================================
-   GRID
+   GALERÍA — DESKTOP
 ========================================================= */
 
 .gallery-grid {
-
     display: grid;
 
     grid-template-columns:
-        repeat(3, 1fr);
+        repeat(3, minmax(0, 1fr));
 
     gap: 14px;
 
     margin-top: 80px;
 
     align-items: start;
-
 }
 
 
 /* =========================================================
-   CONTENEDOR
+   FOTOS
 ========================================================= */
 
 .gallery-item {
-
     position: relative;
-
     overflow: hidden;
-
     background: var(--charcoal);
-
+    line-height: 0;
 }
 
 
-/* =========================================================
-   IMÁGENES
-========================================================= */
+/* La imagen conserva SIEMPRE su proporción */
 
 .gallery-item img {
-
     width: 100%;
-
     height: auto;
 
     display: block;
@@ -1657,18 +1651,15 @@ img {
 
     transition:
         transform .7s cubic-bezier(.22,.61,.36,1);
-
 }
 
 
 /* =========================================================
-   FOTO PRINCIPAL
+   FOTO GRANDE
 ========================================================= */
 
 .gallery-item-large {
-
     grid-column: span 2;
-
 }
 
 
@@ -1677,45 +1668,38 @@ img {
 ========================================================= */
 
 .gallery-item:hover img {
-
     transform: scale(1.035);
-
 }
 
 
 /* =========================================================
-   CAPA SUAVE
+   CAPA DE SOMBRA
 ========================================================= */
 
 .gallery-item::after {
-
     content: "";
 
     position: absolute;
-
     inset: 0;
 
     background:
         linear-gradient(
             to top,
-            rgba(0,0,0,.28),
+            rgba(0,0,0,.25),
             transparent 55%
         );
 
     pointer-events: none;
 
-    opacity: .7;
+    opacity: .65;
 
     transition:
         opacity .4s ease;
-
 }
 
 
 .gallery-item:hover::after {
-
-    opacity: .35;
-
+    opacity: .3;
 }
 
 
@@ -1728,7 +1712,7 @@ img {
     .gallery-grid {
 
         grid-template-columns:
-            repeat(2, 1fr);
+            repeat(2, minmax(0, 1fr));
 
         gap: 12px;
 
@@ -1749,6 +1733,13 @@ img {
 
 @media (max-width: 800px) {
 
+    .gallery {
+
+        padding:
+            105px 22px 90px;
+
+    }
+
     .gallery-grid {
 
         grid-template-columns: 1fr;
@@ -1768,7 +1759,6 @@ img {
     .gallery-item img {
 
         width: 100%;
-
         height: auto;
 
     }
@@ -2528,46 +2518,125 @@ img {
     }
 
 
-    /* GALERÍA */
+  /* =========================================================
+   GALERÍA
+========================================================= */
+
+.gallery {
+    position: relative;
+    padding: 160px 8vw 130px;
+    overflow: hidden;
+    background: var(--white);
+    color: var(--black);
+}
+
+.gallery h2 {
+    font-family: var(--heading);
+    font-weight: 800;
+    font-size: clamp(70px, 10vw, 150px);
+    line-height: .79;
+    letter-spacing: -.025em;
+    color: var(--black);
+}
+
+.gallery h2 strong {
+    color: var(--lime);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 80px;
+    align-items: start;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    background: var(--charcoal);
+    line-height: 0;
+}
+
+.gallery-item-large {
+    grid-column: span 2;
+}
+
+.gallery-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    transition: transform .7s cubic-bezier(.22,.61,.36,1);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.035);
+}
+
+.gallery-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,.25),
+        transparent 55%
+    );
+    pointer-events: none;
+    opacity: .65;
+    transition: opacity .4s ease;
+}
+
+.gallery-item:hover::after {
+    opacity: .3;
+}
+
+
+/* =========================================================
+   GALERÍA — TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
 
     .gallery-grid {
-
-        grid-template-columns:
-
-            1fr 1fr;
-
-        grid-template-rows:
-
-            180px 180px 180px;
-
-        margin-top: 55px;
-
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
     }
 
     .gallery-item-large {
-
-        grid-row: span 2;
-
-    }
-
-    .gallery-item:nth-child(4) {
-
-        grid-column: span 1;
-
-    }
-
-    .gallery-item:nth-child(5) {
-
         grid-column: span 2;
-
     }
 
-    .gallery-placeholder span {
+}
 
-        font-size: 30px;
 
+/* =========================================================
+   GALERÍA — MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .gallery {
+        padding: 105px 22px 90px;
     }
 
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 55px;
+    }
+
+    .gallery-item-large {
+        grid-column: span 1;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: auto;
+    }
+
+}
 
     /* CONTACTO */
 
