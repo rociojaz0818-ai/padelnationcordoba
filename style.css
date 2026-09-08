@@ -3273,7 +3273,7 @@ img {
     height: 100%;
     pointer-events: none;
     overflow: hidden;
-    z-index: 1;
+    z-index: 0;
 }
 
 .padel-ball {
@@ -3292,13 +3292,9 @@ img {
     box-shadow:
         0 0 15px rgba(207,255,0,.12),
         inset -4px -5px 8px rgba(0,0,0,.2);
-
     opacity: .18;
-
     will-change: transform;
 }
-
-/* costura característica de la pelota */
 
 .padel-ball::after {
     content: "";
@@ -3308,6 +3304,15 @@ img {
     border-left-color: transparent;
     border-radius: 50%;
     transform: rotate(-25deg);
+}
+
+/* CONTENIDO POR ENCIMA DE LAS PELOTAS */
+
+.site-header,
+main,
+footer {
+    position: relative;
+    z-index: 2;
 }
 
 @media (max-width: 800px) {
