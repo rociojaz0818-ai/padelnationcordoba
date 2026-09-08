@@ -888,3 +888,55 @@ if (
         .scrollBehavior = "auto";
 
 }
+/* =========================================
+   PADEL BALLS ANIMATION
+========================================= */
+
+const padelBallsContainer = document.querySelector('.padel-balls');
+
+if (padelBallsContainer) {
+
+    const ballCount = window.innerWidth <= 800 ? 4 : 7;
+
+    for (let i = 0; i < ballCount; i++) {
+
+        const ball = document.createElement('span');
+        ball.classList.add('padel-ball');
+
+        const startY = Math.random() * 90 + 5;
+        const duration = 7 + Math.random() * 7;
+        const delay = Math.random() * -10;
+        const size = 18 + Math.random() * 18;
+
+        ball.style.width = `${size}px`;
+        ball.style.height = `${size}px`;
+        ball.style.top = `${startY}%`;
+
+        padelBallsContainer.appendChild(ball);
+
+        let startTime = null;
+
+        function animateBall(timestamp) {
+
+            if (!startTime) startTime = timestamp;
+
+            const elapsed = (timestamp - startTime) / 1000;
+            const progress = ((elapsed + Math.abs(delay)) % duration) / duration;
+
+            const x = -80 + (window.innerWidth + 160) * progress;
+
+            const wave =
+                Math.sin(progress * Math.PI * 2 + i) *
+                (25 + i * 5);
+
+            const rotation = progress * 720;
+
+            ball.style.transform =
+                `translate3d(${x}px, ${wave}px, 0) rotate(${rotation}deg)`;
+
+            requestAnimationFrame(animateBall);
+        }
+
+        requestAnimationFrame(animateBall);
+    }
+}
