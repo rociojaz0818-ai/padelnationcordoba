@@ -1583,34 +1583,52 @@ img {
 ========================================================= */
 
 .gallery {
-
     position: relative;
-
-    padding:
-
-        160px 8vw 130px;
-
+    padding: 160px 8vw 130px;
     overflow: hidden;
-
 }
+
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
+.gallery h2 {
+    font-family: var(--heading);
+    font-weight: 800;
+    font-size: clamp(70px, 10vw, 150px);
+    line-height: .79;
+    letter-spacing: -.025em;
+}
+
+.gallery h2 strong {
+    color: var(--lime);
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
 
 .gallery-grid {
 
     display: grid;
 
     grid-template-columns:
+        repeat(3, 1fr);
 
-        1.2fr .8fr .8fr;
-
-    grid-template-rows:
-
-        240px 240px;
-
-    gap: 12px;
+    gap: 14px;
 
     margin-top: 80px;
 
+    align-items: start;
+
 }
+
+
+/* =========================================================
+   CONTENEDOR
+========================================================= */
 
 .gallery-item {
 
@@ -1618,67 +1636,58 @@ img {
 
     overflow: hidden;
 
+    background: var(--charcoal);
+
 }
+
+
+/* =========================================================
+   IMÁGENES
+========================================================= */
+
+.gallery-item img {
+
+    width: 100%;
+
+    height: auto;
+
+    display: block;
+
+    object-fit: contain;
+
+    transition:
+        transform .7s cubic-bezier(.22,.61,.36,1);
+
+}
+
+
+/* =========================================================
+   FOTO PRINCIPAL
+========================================================= */
 
 .gallery-item-large {
-
-    grid-row: span 2;
-
-}
-
-.gallery-item:nth-child(4) {
 
     grid-column: span 2;
 
 }
 
-.gallery-placeholder {
 
-    width: 100%;
+/* =========================================================
+   HOVER
+========================================================= */
 
-    height: 100%;
+.gallery-item:hover img {
 
-    position: relative;
-
-    display: flex;
-
-    align-items: flex-end;
-
-    padding: 25px;
-
-    overflow: hidden;
-
-    background:
-
-        radial-gradient(
-
-            circle at 45% 40%,
-
-            rgba(139,217,0,.38),
-
-            transparent 28%
-
-        ),
-
-        linear-gradient(
-
-            135deg,
-
-            rgba(36,73,216,.5),
-
-            transparent 60%
-
-        ),
-
-        var(--charcoal);
-
-    transition:
-
-        transform .6s ease;
+    transform: scale(1.035);
 
 }
 
-.gallery-placeholder::after {
+
+/* =========================================================
+   CAPA SUAVE
+========================================================= */
+
+.gallery-item::after {
 
     content: "";
 
@@ -1687,42 +1696,84 @@ img {
     inset: 0;
 
     background:
-
         linear-gradient(
-
             to top,
-
-            rgba(0,0,0,.6),
-
+            rgba(0,0,0,.28),
             transparent 55%
-
         );
 
-}
+    pointer-events: none;
 
-.gallery-item:hover .gallery-placeholder {
+    opacity: .7;
 
-    transform: scale(1.04);
-
-}
-
-.gallery-placeholder span {
-
-    position: relative;
-
-    z-index: 2;
-
-    color: var(--white);
-
-    font-family: var(--heading);
-
-    font-size: 48px;
-
-    font-weight: 800;
+    transition:
+        opacity .4s ease;
 
 }
 
 
+.gallery-item:hover::after {
+
+    opacity: .35;
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .gallery-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 12px;
+
+    }
+
+    .gallery-item-large {
+
+        grid-column: span 2;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .gallery-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+
+        margin-top: 55px;
+
+    }
+
+    .gallery-item-large {
+
+        grid-column: span 1;
+
+    }
+
+    .gallery-item img {
+
+        width: 100%;
+
+        height: auto;
+
+    }
+
+}
 /* =========================================================
    CONTACTO
 ========================================================= */
