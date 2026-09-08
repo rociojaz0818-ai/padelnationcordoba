@@ -2752,14 +2752,3 @@ img {
     }
 
 }
-@media (max-width: 800px) {
-
-    .courts .section-heading h2 {
-        font-size: 45px !important;
-        line-height: .8 !important;
-        width: auto !important;
-        max-width: 100% !important;
-        transform: none !important;
-    }
-
-}
