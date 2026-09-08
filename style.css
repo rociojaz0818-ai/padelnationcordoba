@@ -2492,7 +2492,7 @@ img {
 
 }
 .contact h2 {
-    font-size: clamp(60px, 9vw, 145px);
+    font-size: min(9vw, 145px);
     line-height: .8;
     max-width: 100%;
     white-space: nowrap;
@@ -3159,10 +3159,8 @@ img {
 
     }
 
-   .contact h2 {
-    font-size: clamp(64px, 20vw, 110px);
-    line-height: .85;
-    white-space: nowrap;
+ .contact h2 {
+    font-size: clamp(48px, 15vw, 85px);
 }
 
     .contact-phone {
