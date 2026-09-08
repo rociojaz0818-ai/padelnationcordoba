@@ -2763,3 +2763,12 @@ img {
     }
 
 }
+.hero-location {
+    margin-bottom: 20px;
+    font-family: var(--body);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--lime);
+}
