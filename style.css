@@ -1731,12 +1731,15 @@ img {
 
 @media (max-width: 800px) {
 
-    .gallery {
-
-        padding:
-            105px 22px 90px;
-
+    .courts h2 {
+        font-size: 48px;
+        line-height: .82;
+        letter-spacing: -.03em;
+        max-width: 100%;
+        word-break: normal;
     }
+
+}
 
     .gallery-grid {
 
