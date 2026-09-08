@@ -47,7 +47,9 @@ window.addEventListener("load", () => {
 
     setTimeout(() => {
 
-        preloader.classList.add("hidden");
+        if (preloader) {
+            preloader.classList.add("hidden");
+        }
 
         body.classList.add("page-loaded");
 
@@ -100,15 +102,15 @@ mobileLinks.forEach(link => {
         "click",
         () => {
 
-            mobileMenu.classList.remove(
+            mobileMenu?.classList.remove(
                 "open"
             );
 
-            menuToggle.classList.remove(
+            menuToggle?.classList.remove(
                 "active"
             );
 
-            menuToggle.setAttribute(
+            menuToggle?.setAttribute(
                 "aria-expanded",
                 "false"
             );
@@ -183,9 +185,7 @@ if (isDesktop && cursor && cursorFollower) {
             mouseY = event.clientY;
 
 
-            /*
-             * Cursor pequeño
-             */
+            /* Cursor pequeño */
 
             cursor.style.left =
                 `${mouseX}px`;
@@ -194,9 +194,7 @@ if (isDesktop && cursor && cursorFollower) {
                 `${mouseY}px`;
 
 
-            /*
-             * Glow
-             */
+            /* Glow */
 
             if (cursorGlow) {
 
@@ -215,9 +213,7 @@ if (isDesktop && cursor && cursorFollower) {
     );
 
 
-    /*
-     * Cursor grande con retraso
-     */
+    /* Cursor grande con retraso */
 
     function animateFollower() {
 
@@ -245,13 +241,11 @@ if (isDesktop && cursor && cursorFollower) {
     animateFollower();
 
 
-    /*
-     * Interacción con links y botones
-     */
+    /* Interacción con links y botones */
 
     const interactiveElements =
         document.querySelectorAll(
-            "a, button, .court-card, .service-card, .gallery-item,"
+            "a, button, .court-card, .service-card, .gallery-item"
         );
 
 
@@ -299,49 +293,53 @@ if (isDesktop && cursor && cursorFollower) {
    REVEAL AL HACER SCROLL
 ========================================================= */
 
-const revealObserver =
-    new IntersectionObserver(
-        entries => {
+if (revealElements.length) {
 
-            entries.forEach(
-                entry => {
+    const revealObserver =
+        new IntersectionObserver(
+            entries => {
 
-                    if (
-                        entry.isIntersecting
-                    ) {
+                entries.forEach(
+                    entry => {
 
-                        entry.target.classList.add(
-                            "visible"
-                        );
+                        if (
+                            entry.isIntersecting
+                        ) {
 
-                        revealObserver.unobserve(
-                            entry.target
-                        );
+                            entry.target.classList.add(
+                                "visible"
+                            );
+
+                            revealObserver.unobserve(
+                                entry.target
+                            );
+
+                        }
 
                     }
+                );
 
-                }
+            },
+            {
+                threshold: 0.12,
+
+                rootMargin:
+                    "0px 0px -50px 0px"
+            }
+        );
+
+
+    revealElements.forEach(
+        element => {
+
+            revealObserver.observe(
+                element
             );
 
-        },
-        {
-            threshold: 0.12,
-
-            rootMargin:
-                "0px 0px -50px 0px"
         }
     );
 
-
-revealElements.forEach(
-    element => {
-
-        revealObserver.observe(
-            element
-        );
-
-    }
-);
+}
 
 
 /* =========================================================
@@ -362,12 +360,18 @@ if (isDesktop && heroBall) {
         event => {
 
             targetX =
-                (event.clientX /
-                window.innerWidth - 0.5) * 24;
+                (
+                    event.clientX /
+                    window.innerWidth -
+                    0.5
+                ) * 24;
 
             targetY =
-                (event.clientY /
-                window.innerHeight - 0.5) * 24;
+                (
+                    event.clientY /
+                    window.innerHeight -
+                    0.5
+                ) * 24;
 
         },
         {
@@ -421,12 +425,18 @@ if (isDesktop && heroContent) {
         event => {
 
             const x =
-                (event.clientX /
-                window.innerWidth - 0.5) * 8;
+                (
+                    event.clientX /
+                    window.innerWidth -
+                    0.5
+                ) * 8;
 
             const y =
-                (event.clientY /
-                window.innerHeight - 0.5) * 5;
+                (
+                    event.clientY /
+                    window.innerHeight -
+                    0.5
+                ) * 5;
 
 
             heroContent.style.transform =
@@ -474,10 +484,16 @@ serviceCards.forEach(card => {
 
 
             const rotateX =
-                ((y / rect.height) - 0.5) * -5;
+                (
+                    (y / rect.height) -
+                    0.5
+                ) * -5;
 
             const rotateY =
-                ((x / rect.width) - 0.5) * 5;
+                (
+                    (x / rect.width) -
+                    0.5
+                ) * 5;
 
 
             card.style.transform =
@@ -529,15 +545,17 @@ galleryItems.forEach(item => {
 
 
             const x =
-                (event.clientX -
-                rect.left) /
-                rect.width;
+                (
+                    event.clientX -
+                    rect.left
+                ) / rect.width;
 
 
             const y =
-                (event.clientY -
-                rect.top) /
-                rect.height;
+                (
+                    event.clientY -
+                    rect.top
+                ) / rect.height;
 
 
             const moveX =
@@ -695,71 +713,76 @@ const sections =
         "main section[id]"
     );
 
+
 const navLinks =
     document.querySelectorAll(
         ".main-nav a"
     );
 
 
-const sectionObserver =
-    new IntersectionObserver(
-        entries => {
+if (sections.length) {
 
-            entries.forEach(
-                entry => {
+    const sectionObserver =
+        new IntersectionObserver(
+            entries => {
 
-                    if (
-                        entry.isIntersecting
-                    ) {
+                entries.forEach(
+                    entry => {
 
-                        const id =
-                            entry.target.id;
+                        if (
+                            entry.isIntersecting
+                        ) {
 
-
-                        navLinks.forEach(
-                            link => {
-
-                                link.classList.remove(
-                                    "active"
-                                );
+                            const id =
+                                entry.target.id;
 
 
-                                if (
-                                    link.getAttribute(
-                                        "href"
-                                    ) === `#${id}`
-                                ) {
+                            navLinks.forEach(
+                                link => {
 
-                                    link.classList.add(
+                                    link.classList.remove(
                                         "active"
                                     );
 
-                                }
 
-                            }
-                        );
+                                    if (
+                                        link.getAttribute(
+                                            "href"
+                                        ) === `#${id}`
+                                    ) {
+
+                                        link.classList.add(
+                                            "active"
+                                        );
+
+                                    }
+
+                                }
+                            );
+
+                        }
 
                     }
+                );
 
-                }
+            },
+            {
+                threshold: 0.35
+            }
+        );
+
+
+    sections.forEach(
+        section => {
+
+            sectionObserver.observe(
+                section
             );
 
-        },
-        {
-            threshold: 0.35
         }
     );
 
-
-sections.forEach(
-    section => {
-
-        sectionObserver.observe(
-            section
-        );
-
-    }
-);
+}
 
 
 /* =========================================================
@@ -813,58 +836,4 @@ if (
     document.documentElement.style
         .scrollBehavior = "auto";
 
-}
-/* =========================================================
-   PRELOADER CON LOGO
-========================================================= */
-
-.preloader-logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 28px;
-}
-
-.preloader-logo img {
-    width: 220px;
-    max-width: 70vw;
-    height: auto;
-    display: block;
-}
-
-.preloader-line {
-    width: 220px;
-    max-width: 70vw;
-    height: 3px;
-    background: rgba(255,255,255,.15);
-    overflow: hidden;
-    margin: 0 auto;
-}
-
-.preloader-line span {
-    display: block;
-    width: 40%;
-    height: 100%;
-    background: var(--lime);
-    animation: preloaderLoading 1.2s ease-in-out infinite;
-}
-
-.preloader p {
-    margin-top: 20px;
-    text-align: center;
-    font-family: var(--body);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: .2em;
-    color: rgba(255,255,255,.55);
-}
-
-@keyframes preloaderLoading {
-    0% {
-        transform: translateX(-150%);
-    }
-
-    100% {
-        transform: translateX(350%);
-    }
 }
