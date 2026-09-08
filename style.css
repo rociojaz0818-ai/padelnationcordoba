@@ -2492,12 +2492,12 @@ img {
 
 }
 .contact h2 {
-    font-size: clamp(80px, 13vw, 190px);
+    font-size: clamp(60px, 9vw, 145px);
     line-height: .8;
     max-width: 100%;
     white-space: nowrap;
+    letter-spacing: -0.04em;
 }
-
 .contact-phone {
 
     display: inline-block;
