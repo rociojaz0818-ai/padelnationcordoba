@@ -1582,6 +1582,10 @@ img {
    GALERÍA
 ========================================================= */
 
+/* =========================================================
+   GALERÍA
+========================================================= */
+
 .gallery {
     position: relative;
     padding: 160px 8vw 130px;
@@ -1590,114 +1594,81 @@ img {
     color: var(--black);
 }
 
-
-/* =========================================================
-   TÍTULO
-========================================================= */
-
-.gallery h2 {
-    font-family: var(--heading);
-    font-weight: 800;
-    font-size: clamp(70px, 10vw, 150px);
-    line-height: .79;
-    letter-spacing: -.025em;
-    color: var(--black);
-}
-
-.gallery h2 strong {
-    color: var(--lime);
-}
-
-
-/* =========================================================
-   GALERÍA — DESKTOP
-========================================================= */
-
 .gallery-grid {
+    width: min(900px, 100%);
+    margin: 70px auto 0;
+
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
-    margin-top: 60px;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-}
 
-/* =========================================================
-   FOTOS
-========================================================= */
+    align-items: start;
+}
 
 .gallery-item {
     position: relative;
+    width: 100%;
     overflow: hidden;
-    background: var(--charcoal);
     line-height: 0;
 }
 
-
-/* La imagen conserva SIEMPRE su proporción */
-
-.gallery-item img {
-    width: 100%;
-    height: auto;
-
-    display: block;
-
-    object-fit: contain;
-
-    transition:
-        transform .7s cubic-bezier(.22,.61,.36,1);
-}
-
-
-/* =========================================================
-   FOTO GRANDE
-========================================================= */
 .gallery-item-large {
     grid-column: span 1;
 }
 
-
-/* =========================================================
-   HOVER
-========================================================= */
+.gallery-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+}
 
 .gallery-item:hover img {
-    transform: scale(1.035);
+    transform: scale(1.03);
 }
 
 
 /* =========================================================
-   CAPA DE SOMBRA
+   GALERÍA — TABLET
 ========================================================= */
 
-.gallery-item::after {
-    content: "";
+@media (max-width: 1100px) {
 
-    position: absolute;
-    inset: 0;
+    .gallery-grid {
+        width: min(750px, 100%);
+        grid-template-columns: repeat(3, 1fr);
+    }
 
-    background:
-        linear-gradient(
-            to top,
-            rgba(0,0,0,.25),
-            transparent 55%
-        );
-
-    pointer-events: none;
-
-    opacity: .65;
-
-    transition:
-        opacity .4s ease;
 }
 
 
-.gallery-item:hover::after {
-    opacity: .3;
+/* =========================================================
+   GALERÍA — MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .gallery {
+        padding: 105px 22px 90px;
+    }
+
+    .gallery-grid {
+        width: 100%;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 55px;
+    }
+
+    .gallery-item-large {
+        grid-column: span 1;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: auto;
+    }
+
 }
-
-
 /* =========================================================
    TABLET
 ========================================================= */
