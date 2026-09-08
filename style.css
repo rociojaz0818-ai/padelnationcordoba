@@ -2752,3 +2752,14 @@ img {
     }
 
 }
+@media (max-width: 800px) {
+
+    .contact-container h2 {
+        font-size: 55px !important;
+        line-height: .85 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        white-space: nowrap !important;
+    }
+
+}
