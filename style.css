@@ -2491,15 +2491,11 @@ img {
     width: 100%;
 
 }
-
 .contact h2 {
-
-    font-size:
-
-        clamp(100px,17vw,240px);
-
-    line-height: .7;
-
+    font-size: clamp(80px, 13vw, 190px);
+    line-height: .8;
+    max-width: 100%;
+    white-space: nowrap;
 }
 
 .contact-phone {
