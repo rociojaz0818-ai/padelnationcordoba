@@ -1709,9 +1709,9 @@ img {
 @media (max-width: 800px) {
 
     .courts h2 {
-        font-size: clamp(58px, 17vw, 100px);
+        font-size: 40px;
         line-height: .82;
-        letter-spacing: -.03em;
+        letter-spacing: -.02em;
         max-width: 100%;
     }
 
