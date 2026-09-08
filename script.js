@@ -14,6 +14,8 @@ const nav = document.getElementById("nav");
 
 if (menuToggle && nav) {
 
+    // Abrir / cerrar menú
+
     menuToggle.addEventListener("click", function () {
 
         nav.classList.toggle("active");
@@ -27,6 +29,11 @@ if (menuToggle && nav) {
                 icon.classList.add("fa-xmark");
             }
 
+            menuToggle.setAttribute(
+                "aria-label",
+                "Cerrar menú"
+            );
+
         } else {
 
             if (icon) {
@@ -34,10 +41,17 @@ if (menuToggle && nav) {
                 icon.classList.add("fa-bars");
             }
 
+            menuToggle.setAttribute(
+                "aria-label",
+                "Abrir menú"
+            );
+
         }
 
     });
 
+
+    // Cerrar al seleccionar una sección
 
     const navLinks = nav.querySelectorAll("a");
 
@@ -55,34 +69,47 @@ if (menuToggle && nav) {
                 icon.classList.add("fa-bars");
             }
 
+            menuToggle.setAttribute(
+                "aria-label",
+                "Abrir menú"
+            );
+
         });
 
     });
 
 
+    // Cerrar al hacer click fuera
+
     document.addEventListener("click", function (event) {
 
-        const clickedInsideNav =
+        const clickDentroDelMenu =
             nav.contains(event.target);
 
-        const clickedButton =
+        const clickEnBoton =
             menuToggle.contains(event.target);
 
 
         if (
             nav.classList.contains("active") &&
-            !clickedInsideNav &&
-            !clickedButton
+            !clickDentroDelMenu &&
+            !clickEnBoton
         ) {
 
             nav.classList.remove("active");
 
-            const icon = menuToggle.querySelector("i");
+            const icon =
+                menuToggle.querySelector("i");
 
             if (icon) {
                 icon.classList.remove("fa-xmark");
                 icon.classList.add("fa-bars");
             }
+
+            menuToggle.setAttribute(
+                "aria-label",
+                "Abrir menú"
+            );
 
         }
 
@@ -112,27 +139,35 @@ galleryItems.forEach(function (item) {
 
     item.addEventListener("click", function () {
 
-        const image =
+        const imageSource =
             item.getAttribute("data-image");
 
-        const originalImage =
+        const image =
             item.querySelector("img");
 
 
-        if (!image || !modal || !modalImage) {
+        if (!modal || !modalImage || !imageSource) {
             return;
         }
 
 
-        modalImage.src = image;
+        modalImage.src = imageSource;
 
 
-        if (originalImage) {
-            modalImage.alt = originalImage.alt;
+        if (image) {
+            modalImage.alt = image.alt;
         }
 
 
         modal.classList.add("active");
+
+        modal.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+
+        // Evitar scroll mientras la imagen está abierta
 
         document.body.style.overflow = "hidden";
 
@@ -142,7 +177,7 @@ galleryItems.forEach(function (item) {
 
 
 /* =========================================================
-   CERRAR MODAL
+   CERRAR GALERÍA
 ========================================================= */
 
 function closeModal() {
@@ -151,12 +186,39 @@ function closeModal() {
         return;
     }
 
+
     modal.classList.remove("active");
+
+    modal.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
 
     document.body.style.overflow = "";
 
+
+    // Limpiar imagen después de cerrar
+
+    setTimeout(function () {
+
+        if (
+            modalImage &&
+            !modal.classList.contains("active")
+        ) {
+
+            modalImage.src = "";
+
+        }
+
+    }, 300);
+
 }
 
+
+/* =========================================================
+   BOTÓN X
+========================================================= */
 
 if (modalClose) {
 
@@ -168,36 +230,50 @@ if (modalClose) {
 }
 
 
+/* =========================================================
+   CERRAR HACIENDO CLICK FUERA
+========================================================= */
+
 if (modal) {
 
-    modal.addEventListener("click", function (event) {
+    modal.addEventListener(
+        "click",
+        function (event) {
 
-        if (event.target === modal) {
-            closeModal();
+            if (event.target === modal) {
+                closeModal();
+            }
+
         }
-
-    });
+    );
 
 }
 
 
-document.addEventListener("keydown", function (event) {
+/* =========================================================
+   CERRAR CON ESC
+========================================================= */
 
-    if (
-        event.key === "Escape" &&
-        modal &&
-        modal.classList.contains("active")
-    ) {
+document.addEventListener(
+    "keydown",
+    function (event) {
 
-        closeModal();
+        if (
+            event.key === "Escape" &&
+            modal &&
+            modal.classList.contains("active")
+        ) {
+
+            closeModal();
+
+        }
 
     }
-
-});
+);
 
 
 /* =========================================================
-   AÑO
+   AÑO AUTOMÁTICO
 ========================================================= */
 
 const year =
@@ -210,3 +286,52 @@ if (year) {
         new Date().getFullYear();
 
 }
+
+
+/* =========================================================
+   CERRAR MENÚ AL CAMBIAR A PC
+========================================================= */
+
+window.addEventListener(
+    "resize",
+    function () {
+
+        if (
+            window.innerWidth > 768 &&
+            nav &&
+            nav.classList.contains("active")
+        ) {
+
+            nav.classList.remove("active");
+
+
+            if (menuToggle) {
+
+                menuToggle.setAttribute(
+                    "aria-label",
+                    "Abrir menú"
+                );
+
+
+                const icon =
+                    menuToggle.querySelector("i");
+
+
+                if (icon) {
+
+                    icon.classList.remove(
+                        "fa-xmark"
+                    );
+
+                    icon.classList.add(
+                        "fa-bars"
+                    );
+
+                }
+
+            }
+
+        }
+
+    }
+);
