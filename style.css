@@ -3327,10 +3327,34 @@ footer {
 }
 @media (max-width: 800px) {
 
+  .contact h2 {
+    font-size: clamp(48px, 13vw, 145px);
+    line-height: .8;
+    max-width: 100%;
+    white-space: nowrap;
+    letter-spacing: -0.05em;
+}
+}
+@media screen and (max-width: 800px) {
+
+    .contact {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .contact-container {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+    }
+
     .contact h2 {
-        font-size: 58px !important;
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        font-size: 48px !important;
         line-height: .85;
-        letter-spacing: -0.04em;
+        letter-spacing: -0.05em;
         white-space: nowrap;
     }
 
