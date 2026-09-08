@@ -5,6 +5,34 @@
 
 
 /* =========================================================
+   PRELOADER
+========================================================= */
+
+const preloader = document.getElementById("preloader");
+
+
+// Bloqueamos el scroll mientras carga
+if (preloader) {
+
+    document.body.classList.add("preloader-active");
+
+    window.addEventListener("load", function () {
+
+        setTimeout(function () {
+
+            preloader.classList.add("hide");
+
+            document.body.classList.remove("preloader-active");
+
+        }, 1800);
+
+    });
+
+}
+
+
+
+/* =========================================================
    MENÚ MOBILE
 ========================================================= */
 
@@ -14,31 +42,46 @@ const nav = document.getElementById("nav");
 
 if (menuToggle && nav) {
 
-    // Abrir / cerrar menú
+
+    /* -----------------------------------------
+       ABRIR / CERRAR MENÚ
+    ----------------------------------------- */
+
     menuToggle.addEventListener("click", function () {
 
         nav.classList.toggle("active");
 
-        const isOpen = nav.classList.contains("active");
+
+        const menuOpen =
+            nav.classList.contains("active");
+
 
         menuToggle.setAttribute(
             "aria-label",
-            isOpen ? "Cerrar menú" : "Abrir menú"
+            menuOpen
+                ? "Cerrar menú"
+                : "Abrir menú"
         );
 
-        // Cambiar icono hamburguesa ↔ X
-        const icon = menuToggle.querySelector("i");
+
+        // Cambiar hamburguesa por X
+
+        const icon =
+            menuToggle.querySelector("i");
+
 
         if (icon) {
 
-            if (isOpen) {
+            if (menuOpen) {
 
                 icon.classList.remove("fa-bars");
+
                 icon.classList.add("fa-xmark");
 
             } else {
 
                 icon.classList.remove("fa-xmark");
+
                 icon.classList.add("fa-bars");
 
             }
@@ -48,8 +91,14 @@ if (menuToggle && nav) {
     });
 
 
-    // Cerrar menú cuando se toca una opción
-    const navLinks = nav.querySelectorAll("a");
+
+    /* -----------------------------------------
+       CERRAR AL TOCAR UNA OPCIÓN
+    ----------------------------------------- */
+
+    const navLinks =
+        nav.querySelectorAll("a");
+
 
     navLinks.forEach(function (link) {
 
@@ -57,16 +106,21 @@ if (menuToggle && nav) {
 
             nav.classList.remove("active");
 
+
             menuToggle.setAttribute(
                 "aria-label",
                 "Abrir menú"
             );
 
-            const icon = menuToggle.querySelector("i");
+
+            const icon =
+                menuToggle.querySelector("i");
+
 
             if (icon) {
 
                 icon.classList.remove("fa-xmark");
+
                 icon.classList.add("fa-bars");
 
             }
@@ -76,62 +130,82 @@ if (menuToggle && nav) {
     });
 
 
-    // Cerrar menú al hacer click fuera
-    document.addEventListener("click", function (event) {
 
-        const clickedInsideMenu =
-            nav.contains(event.target);
+    /* -----------------------------------------
+       CERRAR AL TOCAR AFUERA
+    ----------------------------------------- */
 
-        const clickedToggle =
-            menuToggle.contains(event.target);
+    document.addEventListener(
+        "click",
+        function (event) {
+
+            const clickedMenu =
+                nav.contains(event.target);
+
+            const clickedButton =
+                menuToggle.contains(event.target);
 
 
-        if (
-            nav.classList.contains("active") &&
-            !clickedInsideMenu &&
-            !clickedToggle
-        ) {
+            if (
+                nav.classList.contains("active") &&
+                !clickedMenu &&
+                !clickedButton
+            ) {
 
-            nav.classList.remove("active");
+                nav.classList.remove("active");
 
-            menuToggle.setAttribute(
-                "aria-label",
-                "Abrir menú"
-            );
 
-            const icon = menuToggle.querySelector("i");
+                menuToggle.setAttribute(
+                    "aria-label",
+                    "Abrir menú"
+                );
 
-            if (icon) {
 
-                icon.classList.remove("fa-xmark");
-                icon.classList.add("fa-bars");
+                const icon =
+                    menuToggle.querySelector("i");
+
+
+                if (icon) {
+
+                    icon.classList.remove("fa-xmark");
+
+                    icon.classList.add("fa-bars");
+
+                }
 
             }
 
         }
-
-    });
+    );
 
 }
 
 
 
 /* =========================================================
-   MODAL DE GALERÍA
+   GALERÍA
 ========================================================= */
 
 const galleryItems =
     document.querySelectorAll(".galeria-item");
 
+
 const imageModal =
     document.getElementById("image-modal");
+
 
 const modalImage =
     document.getElementById("modal-image");
 
+
 const modalClose =
     document.getElementById("modal-close");
 
+
+
+/* -----------------------------------------
+   ABRIR IMAGEN
+----------------------------------------- */
 
 if (
     galleryItems.length > 0 &&
@@ -139,60 +213,75 @@ if (
     modalImage
 ) {
 
+
     galleryItems.forEach(function (item) {
 
-        item.addEventListener("click", function () {
 
-            const imageSource =
-                item.getAttribute("data-image");
-
-            const image =
-                item.querySelector("img");
+        item.addEventListener(
+            "click",
+            function () {
 
 
-            if (imageSource) {
+                const imageSource =
+                    item.getAttribute("data-image");
 
-                modalImage.src = imageSource;
 
-            } else if (image) {
+                const originalImage =
+                    item.querySelector("img");
 
-                modalImage.src = image.src;
+
+                if (imageSource) {
+
+                    modalImage.src =
+                        imageSource;
+
+                } else if (originalImage) {
+
+                    modalImage.src =
+                        originalImage.src;
+
+                }
+
+
+                if (originalImage) {
+
+                    modalImage.alt =
+                        originalImage.alt;
+
+                }
+
+
+                imageModal.classList.add("active");
+
+
+                imageModal.setAttribute(
+                    "aria-hidden",
+                    "false"
+                );
+
+
+                // Bloquear scroll
+
+                document.body.style.overflow =
+                    "hidden";
 
             }
+        );
 
-
-            if (image) {
-
-                modalImage.alt =
-                    image.alt;
-
-            }
-
-
-            imageModal.classList.add("active");
-
-            imageModal.setAttribute(
-                "aria-hidden",
-                "false"
-            );
-
-
-            // Evitar que la página se desplace
-            document.body.style.overflow = "hidden";
-
-        });
 
     });
+
 
 }
 
 
 
 /* =========================================================
-   CERRAR MODAL
+   CERRAR GALERÍA
 ========================================================= */
 
 function closeImageModal() {
+
 
     if (!imageModal) {
         return;
@@ -201,16 +290,19 @@ function closeImageModal() {
 
     imageModal.classList.remove("active");
 
+
     imageModal.setAttribute(
         "aria-hidden",
         "true"
     );
 
 
-    document.body.style.overflow = "";
+    document.body.style.overflow =
+        "";
 
 
-    // Limpiar imagen después de la animación
+    // Limpiar imagen
+
     setTimeout(function () {
 
         if (
@@ -228,7 +320,9 @@ function closeImageModal() {
 
 
 
-/* BOTÓN X */
+/* -----------------------------------------
+   BOTÓN X
+----------------------------------------- */
 
 if (modalClose) {
 
@@ -241,7 +335,9 @@ if (modalClose) {
 
 
 
-/* CLICK FUERA DE LA IMAGEN */
+/* -----------------------------------------
+   CLICK FUERA DE LA FOTO
+----------------------------------------- */
 
 if (imageModal) {
 
@@ -249,11 +345,15 @@ if (imageModal) {
         "click",
         function (event) {
 
-            if (event.target === imageModal) {
+
+            if (
+                event.target === imageModal
+            ) {
 
                 closeImageModal();
 
             }
+
 
         }
     );
@@ -262,13 +362,14 @@ if (imageModal) {
 
 
 
-/* =========================================================
-   CERRAR MODAL CON ESC
-========================================================= */
+/* -----------------------------------------
+   ESC PARA CERRAR
+----------------------------------------- */
 
 document.addEventListener(
     "keydown",
     function (event) {
+
 
         if (
             event.key === "Escape" &&
@@ -280,13 +381,14 @@ document.addEventListener(
 
         }
 
+
     }
 );
 
 
 
 /* =========================================================
-   AÑO AUTOMÁTICO DEL FOOTER
+   AÑO AUTOMÁTICO
 ========================================================= */
 
 const currentYear =
@@ -303,40 +405,20 @@ if (currentYear) {
 
 
 /* =========================================================
-   EVITAR QUE EL MODAL SE ABRA CON ENTER
-   SI NO ESTÁ ENFOCADO CORRECTAMENTE
-========================================================= */
-
-if (galleryItems.length > 0) {
-
-    galleryItems.forEach(function (item) {
-
-        item.setAttribute(
-            "aria-label",
-            "Ampliar imagen"
-        );
-
-    });
-
-}
-
-
-
-/* =========================================================
-   PROTECCIÓN AL CAMBIAR DE TAMAÑO
-   Si pasamos de celular a PC mientras el menú
-   está abierto, lo cerramos.
+   CERRAR MENÚ SI CAMBIAMOS A PC
 ========================================================= */
 
 window.addEventListener(
     "resize",
     function () {
 
+
         if (
             window.innerWidth > 768 &&
             nav &&
             nav.classList.contains("active")
         ) {
+
 
             nav.classList.remove("active");
 
@@ -348,20 +430,27 @@ window.addEventListener(
                     "Abrir menú"
                 );
 
+
                 const icon =
                     menuToggle.querySelector("i");
 
 
                 if (icon) {
 
-                    icon.classList.remove("fa-xmark");
-                    icon.classList.add("fa-bars");
+                    icon.classList.remove(
+                        "fa-xmark"
+                    );
+
+                    icon.classList.add(
+                        "fa-bars"
+                    );
 
                 }
 
             }
 
         }
+
 
     }
 );
