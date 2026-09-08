@@ -3159,13 +3159,11 @@ img {
 
     }
 
-    .contact h2 {
-
-        font-size:
-
-            clamp(85px,25vw,150px);
-
-    }
+   .contact h2 {
+    font-size: clamp(64px, 20vw, 110px);
+    line-height: .85;
+    white-space: nowrap;
+}
 
     .contact-phone {
 
