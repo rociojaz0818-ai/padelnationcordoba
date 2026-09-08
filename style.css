@@ -2754,16 +2754,11 @@ img {
 }
 @media (max-width: 800px) {
 
-    .courts h2 {
-        font-size: 32px !important;
-        line-height: .85 !important;
-        letter-spacing: -.02em !important;
-        width: 100% !important;
+    .courts .section-heading h2 {
+        font-size: 45px !important;
+        line-height: .8 !important;
+        width: auto !important;
         max-width: 100% !important;
-        min-width: 0 !important;
-        white-space: normal !important;
-        overflow-wrap: normal !important;
-        word-break: normal !important;
         transform: none !important;
     }
 
