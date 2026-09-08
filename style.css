@@ -3325,3 +3325,13 @@ footer {
         opacity: .13;
     }
 }
+@media (max-width: 800px) {
+
+    .contact h2 {
+        font-size: 58px !important;
+        line-height: .85;
+        letter-spacing: -0.04em;
+        white-space: nowrap;
+    }
+
+}
